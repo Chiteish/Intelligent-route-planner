@@ -239,15 +239,11 @@ Open [`src/web/react_leaflet.html`](src/web/react_leaflet.html) in your browser:
 * Toggle objectives (Time, Distance, Weighted).
 * Adjust weighted sum sliders and click **Plan Route** to overlay path polylines.
 
-![React Leaflet Map Dashboard](images/react_leaflet_dashboard.png)
-
 ### 2. HTML5 Canvas Playground
 Open [`src/web/index.html`](src/web/index.html) in your browser:
 * Double-click to spawn new intersections.
 * Hold **Shift** and drag to draw roads.
 * Watch step-by-step pathfinding animations of Dijkstra vs. A* Search.
-
-![HTML5 Canvas Route Visualizer](images/web_visualizer_dashboard.png)
 
 ---
 
