@@ -1,0 +1,21 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Output directories (keeps repo clean of dynamic runs)
+outputs/*
+!outputs/.gitkeep
+
+# IDE and System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

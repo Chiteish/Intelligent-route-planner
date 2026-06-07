@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {"id": "A", "name": "Downtown", "x": 10.0, "y": 10.0},
+    {"id": "B", "name": "Central Station", "x": 12.0, "y": 15.0},
+    {"id": "C", "name": "Suburbs", "x": 3.0, "y": 18.0},
+    {"id": "D", "name": "Tech Park", "x": 25.0, "y": 12.0},
+    {"id": "E", "name": "Airport", "x": 28.0, "y": 25.0},
+    {"id": "F", "name": "Industrial Zone", "x": 15.0, "y": 2.0},
+    {"id": "G", "name": "Medical Center", "x": 5.0, "y": 9.0},
+    {"id": "H", "name": "Harbor", "x": 2.0, "y": 3.0},
+    {"id": "I", "name": "University District", "x": 8.0, "y": 14.0},
+    {"id": "J", "name": "Shopping Mall", "x": 18.0, "y": 8.0}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "distance": 5.2, "speed_limit": 40.0, "traffic_factor": 1.5},
+    {"source": "A", "target": "G", "distance": 6.0, "speed_limit": 50.0, "traffic_factor": 1.0},
+    {"source": "A", "target": "J", "distance": 8.5, "speed_limit": 50.0, "traffic_factor": 1.8},
+    {"source": "B", "target": "I", "distance": 4.1, "speed_limit": 40.0, "traffic_factor": 1.2},
+    {"source": "I", "target": "C", "distance": 7.2, "speed_limit": 60.0, "traffic_factor": 1.0},
+    {"source": "G", "target": "I", "distance": 5.8, "speed_limit": 50.0, "traffic_factor": 1.1},
+    {"source": "G", "target": "H", "distance": 6.5, "speed_limit": 50.0, "traffic_factor": 1.0},
+    {"source": "H", "target": "F", "distance": 13.0, "speed_limit": 80.0, "traffic_factor": 1.0},
+    {"source": "F", "target": "A", "distance": 9.8, "speed_limit": 60.0, "traffic_factor": 1.3},
+    {"source": "F", "target": "J", "distance": 7.0, "speed_limit": 60.0, "traffic_factor": 1.1},
+    {"source": "J", "target": "D", "distance": 8.2, "speed_limit": 60.0, "traffic_factor": 1.4},
+    {"source": "B", "target": "J", "distance": 9.0, "speed_limit": 50.0, "traffic_factor": 1.3},
+    {"source": "C", "target": "E", "distance": 26.5, "speed_limit": 100.0, "traffic_factor": 1.0},
+    {"source": "D", "target": "E", "distance": 15.0, "speed_limit": 80.0, "traffic_factor": 1.2},
+    {"source": "B", "target": "E", "distance": 19.5, "speed_limit": 80.0, "traffic_factor": 1.4}
+  ]
+}

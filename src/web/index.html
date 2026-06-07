@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Route Planner - Interactive Visualizer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">🗺️</span>
+                <div class="brand-text">
+                    <h1>Route Planner</h1>
+                    <p>Graph Algorithm Simulator</p>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2>🎯 Navigation Setup</h2>
+                
+                <div class="input-group">
+                    <label for="startNode">Start Node</label>
+                    <select id="startNode">
+                        <option value="">Select start node...</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="targetNode">Destination Node</label>
+                    <select id="targetNode">
+                        <option value="">Select destination...</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="algorithm">Algorithm</label>
+                    <select id="algorithm">
+                        <option value="dijkstra">Dijkstra's Algorithm</option>
+                        <option value="astar">A* Search (Guided)</option>
+                        <option value="bfs">Breadth-First Search (BFS)</option>
+                        <option value="dfs">Depth-First Search (DFS)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="metric">Optimization Metric</label>
+                    <select id="metric">
+                        <option value="time">Travel Time (Fastest)</option>
+                        <option value="distance">Physical Distance (Shortest)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2>⚙️ Simulator Speed</h2>
+                <div class="range-container">
+                    <input type="range" id="speed" min="10" max="1000" value="200" step="10">
+                    <span id="speedValue">200 ms</span>
+                </div>
+            </div>
+
+            <div class="button-grid">
+                <button id="btnRun" class="btn btn-primary">🚀 Run Pathfind</button>
+                <button id="btnClearPath" class="btn btn-secondary">🧹 Clear Route</button>
+                <button id="btnResetGraph" class="btn btn-danger">🗑️ Reset Graph</button>
+                <button id="btnLoadDefault" class="btn btn-success">🏙️ Load Metroville</button>
+            </div>
+            
+            <div class="instructions-panel">
+                <h3>💡 Visualizer Instructions:</h3>
+                <ul>
+                    <li><strong>Double Click</strong> on canvas: Create a node.</li>
+                    <li><strong>Drag Node</strong>: Move node position.</li>
+                    <li><strong>Shift + Drag</strong> node to node: Create road.</li>
+                    <li><strong>Right Click</strong> node: Toggle Start/Destination.</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <header class="topbar">
+                <div class="status-bar">
+                    <span class="status-indicator" id="statusIndicator">🟢</span>
+                    <span id="statusMessage">Ready. Load Metroville to start.</span>
+                </div>
+                <div class="legend">
+                    <span class="legend-item"><span class="node-dot start"></span>Start</span>
+                    <span class="legend-item"><span class="node-dot target"></span>Target</span>
+                    <span class="legend-item"><span class="node-dot visited"></span>Visited</span>
+                    <span class="legend-item"><span class="node-dot path"></span>Path</span>
+                </div>
+            </header>
+
+            <div class="canvas-container">
+                <canvas id="graphCanvas"></canvas>
+            </div>
+
+            <!-- Summary Panel -->
+            <footer class="summary-footer">
+                <div class="summary-card" id="summaryCard">
+                    <div class="summary-placeholder">
+                        📊 Route report will appear here after pathfinding execution completes.
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Algorithm Scripts -->
+    <script src="pathfinders.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
