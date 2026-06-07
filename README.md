@@ -245,6 +245,8 @@ Open [`src/web/index.html`](src/web/index.html) in your browser:
 * Hold **Shift** and drag to draw roads.
 * Watch step-by-step pathfinding animations of Dijkstra vs. A* Search.
 
+![HTML5 Canvas Route Visualizer](outputs/web_visualizer_dashboard.png)
+
 ---
 
 ## 🧪 Running the Unit Tests
