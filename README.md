@@ -41,6 +41,8 @@ In navigation systems, finding a path is easy, but finding the *optimal* path un
 ### 1. Adjacency List Graph representation
 Instead of an Adjacency Matrix ($O(V^2)$ space), the transit grid is stored as a hash-map of node IDs mapping to lists of `Edge` objects. This achieves **$O(V + E)$ space efficiency**, which is ideal for sparse networks (such as cities, where intersections link to only 3–4 neighbors).
 
+![Adjacency List Console Output](images/cli_adjacency_list.png)
+
 ### 2. Custom Binary Min-Heap (Priority Queue)
 Standard priority queue structures do not support an efficient **Decrease-Key** operation in $O(\log V)$ time. Our custom `MinHeap` implements a **position index-lookup map**:
 * **Position Map:** Maps `node_id ➔ index_in_array` in $O(1)$ time.
@@ -127,6 +129,14 @@ Intelligent-Route-Planner-Graph-Algorithms/
 └── main.py                 # Application CLI runner
 ```
 
+### 📂 Workspace File Explorer & Graph JSON Dataset
+
+Below is a preview of the clean project directory tree inside VS Code and a snippet of the city coordinates & routing segments stored in `metroville.json`:
+
+| Project Folder Explorer | Metroville JSON Dataset |
+| :---: | :---: |
+| ![VS Code Folder Structure](images/vscode_folder_structure.png) | ![Metroville JSON Graph Dataset](images/metroville_dataset.png) |
+
 ---
 
 ## 🛠️ Setup Instructions
@@ -173,6 +183,13 @@ python -m uvicorn src.server:app --reload --host 127.0.0.1 --port 8000
 ---
 
 ## 📊 Sample API & CLI Outputs
+
+### 🔹 Graph traversals & Shortest Pathfinding CLI Outputs
+Below are the actual run logs of the system traversing the city network using BFS/DFS algorithms and computing the optimized routing paths:
+
+| BFS & DFS Traversals & Distance Routing | Travel Time Routing |
+| :---: | :---: |
+| ![BFS and DFS Graph Traversals and Shortest Path Output](images/cli_traversal_shortest_path.png) | ![Shortest Path travel time comparison](images/cli_shortest_path_distance.png) |
 
 ### 🔹 CLI Pathfinder Benchmark
 Routing from **Downtown (A)** to **Airport (E)**, optimized for **Travel Time**:
