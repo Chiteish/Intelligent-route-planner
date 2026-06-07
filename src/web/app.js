@@ -72,8 +72,23 @@ const defaultCity = {
 // Canvas Resizing
 function resizeCanvas() {
     const rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
+    const oldWidth = canvas.width || 300;
+    const oldHeight = canvas.height || 150;
+
+    canvas.width = rect.width || 800;
+    canvas.height = rect.height || 500;
+
+    // Dynamically re-scale node coordinates if the canvas size changes
+    // This prevents nodes from being squished in the top-left corner
+    if (nodes.length > 0 && oldWidth > 0 && oldHeight > 0 && (oldWidth !== canvas.width || oldHeight !== canvas.height)) {
+        const scaleX = canvas.width / oldWidth;
+        const scaleY = canvas.height / oldHeight;
+        nodes.forEach(node => {
+            node.x *= scaleX;
+            node.y *= scaleY;
+        });
+    }
+
     draw();
 }
 window.addEventListener('resize', resizeCanvas);
@@ -647,6 +662,7 @@ function draw() {
     });
 }
 
-// Start visualizer with default map loaded automatically
+// Initialize canvas size first, then load the city map
+resizeCanvas();
 loadDefaultCity();
 draw();
